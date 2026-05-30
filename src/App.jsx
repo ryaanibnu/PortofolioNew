@@ -420,7 +420,12 @@ export default function App() {
           contentRef.current.querySelector(".font-mono") ||
           contentRef.current.firstElementChild;
         const height = innerElement ? innerElement.scrollHeight : 0;
-        const lines = Math.max(30, Math.ceil((height + 16) / 24));
+        const isMobile = window.innerWidth < 768;
+        const maxLines = isMobile ? 45 : 70;
+        const lines = Math.min(
+          Math.max(30, Math.ceil((height + 16) / 24)),
+          maxLines,
+        );
         setLineCount(lines);
       }
     };
@@ -872,7 +877,7 @@ export default function App() {
                 </div>
               </div>
             ) : (
-              <div className="w-full min-h-full flex">
+              <div className="w-full min-h-full flex items-start">
                 {/* Visual Line Numbers */}
                 <div className="w-8 shrink-0 text-right pr-3 border-r border-[#2d2d2d] text-[#858585] select-none text-[12px] leading-6 font-mono mr-2 sm:mr-4">
                   {Array.from({ length: lineCount }).map((_, i) => (
