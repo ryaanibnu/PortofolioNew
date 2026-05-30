@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --font-fira: Consolas, "Courier New", monospace;
+  --font-jetbrains: Consolas, "Courier New", monospace;
+  --font-share: Consolas, "Courier New", monospace;
+  --font-mono: Consolas, "Courier New", monospace;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-unbounded: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-space: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-syne: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  --color-vscode-bg: #1e1e1e;
+  --color-vscode-sidebar: #252526;
+  --color-vscode-activity: #333333;
+  --color-vscode-title: #3c3c3c;
+  --color-vscode-status: #007acc;
+  --color-vscode-tab-active: #1e1e1e;
+  --color-vscode-tab-inactive: #2d2d2d;
+  --color-vscode-border: #3c3c3c;
+  --color-vscode-terminal: #1e1e1e;
+  
+  --color-syntax-keyword: #c586c0;
+  --color-syntax-string: #ce9178;
+  --color-syntax-number: #b5cea8;
+  --color-syntax-comment: #6a9955;
+  --color-syntax-function: #dcdcaa;
+  --color-syntax-variable: #9cdcfe;
+  --color-syntax-tag: #569cd6;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-vscode-bg);
+  color: #d4d4d4;
+  overflow: hidden;
+  font-family: var(--font-sans);
+}
+
+.code-font {
+  font-family: var(--font-fira);
+}
+
+/* Custom terminal blink cursor effect */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background-color: #d4d4d4;
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+/* Custom scrollbar adjustments for inner code files */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #3e3e3e;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #4f4f4f;
+}
